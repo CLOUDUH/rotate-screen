@@ -1,126 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>AMApplicationBuild</key>
-	<string>512</string>
-	<key>AMApplicationVersion</key>
-	<string>2.10</string>
-	<key>AMDocumentVersion</key>
-	<string>2</string>
-	<key>actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>1.0.2</string>
-				<key>AMApplication</key>
-				<array>
-					<string>自动操作</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict>
-					<key>source</key>
-					<dict/>
-				</dict>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionName</key>
-				<string>运行AppleScript</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>source</key>
-					<string>on run		tell application "System Preferences" # 退出之前存在的系统偏好设置		quit		delay 0.5 # 延迟避免quit和activate冲突	end tell		tell application "System Preferences"		activate # 打开系统偏好	end tell		tell application "System Events" # 定位事件		key down {option} # 按下option		delay 0.5		# 在按下option的基础上点击显示器按钮，在Monterey中是隐藏的		click button "显示器" of scroll area 1 of window "系统偏好设置" of application process "System Preferences"		delay 1		key up {option} # 松开option	end tell		set x to 0 # 设置一个标志位，0为标准，90为右旋转		tell application "System Events" # 定位事件		tell pop up button "旋转：" of group 1 of window "显示器" of application process "System Preferences" # 定位到旋转按钮			if value is "标准" then # 当前屏幕为标准，进入旋转流程				click # 点击下拉按钮				delay 0.5 # 等待UI反应				pick menu item "90°" of menu 1 # 在项目中选择90度进行点击				set x to 0 # 标志位赋值			else				click				delay 0.5				pick menu item "标准" of menu 1 # 在项目中选择标准进行点击				set x to 90 # 标志位赋值			end if		end tell	end tell		tell application "System Events"		delay 1 # 等待UI反应		if x = 0 then			click button "确认" of sheet 1 of window "显示器" of application process "System Preferences"		end if	end tell		tell application "System Preferences"		delay 0.5 # 等待UI反应		quit # 退出系统偏好	end tell	end run</string>
-				</dict>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
-				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryUtilities</string>
-				</array>
-				<key>Class Name</key>
-				<string>RunScriptAction</string>
-				<key>InputUUID</key>
-				<string>396A00B3-9934-4F03-A491-63CCBA92E292</string>
-				<key>Keywords</key>
-				<array>
-					<string>运行</string>
-				</array>
-				<key>OutputUUID</key>
-				<string>066AB05E-1FF1-49AF-9684-725E79752DCA</string>
-				<key>UUID</key>
-				<string>CD85377A-7945-4CB2-B206-8F87D06D8358</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>arguments</key>
-				<dict>
-					<key>0</key>
-					<dict>
-						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
-						<key>name</key>
-						<string>source</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
-				<key>isViewVisible</key>
-				<integer>1</integer>
-				<key>location</key>
-				<string>475.500000:315.000000</string>
-				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
-			</dict>
-			<key>isViewVisible</key>
-			<integer>1</integer>
-		</dict>
-	</array>
-	<key>connectors</key>
-	<dict/>
-	<key>workflowMetaData</key>
-	<dict>
-		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.application</string>
-	</dict>
-</dict>
-</plist>
