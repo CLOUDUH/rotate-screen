@@ -12,7 +12,7 @@
 > 但是我也偶尔会拿着我的Mac外出，因此每次拿下电脑或者放上电脑之前，都要进行内置屏幕的旋转。
 > Mac设置默认不开放旋转选项，你需要按住Option打开显示器设置，旋转的选项才会出现。屏幕旋转之后，触摸板操作方向不会改变，因此操作起来非常反人类。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130223249.png)
+![image1](./image/Pasted%20image%2020221130223249.png)
 
 方案如何实施
 
@@ -65,7 +65,7 @@ end tell # 挂了，早点睡，多喝热水
 
 自动操作（Automator）是Mac电脑上自带的一款软件，通过设置，可以实现电脑上的大部分操作自动进行，可以简单理解为一个更加硬核的快捷指令（Shortcuts）。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130222634.png)
+![image](./image/Pasted%20image%2020221130222634.png)
 
 ### 2.3 macOS的隐藏选项
 
@@ -76,7 +76,7 @@ macOS总是隐藏着许多你找不到的选项，必须通过同时按键盘才
 - 键盘按住Option，鼠标点击显示器（Displays）
 - 如果你之前没有按Option进入过，这个时候你必须回到第一步，彻底关闭重新来一遍，否则你把键盘按烂，旋转（Rotation）选项也不会出来。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130230854.png)
+![image](./image/Pasted%20image%2020221130230854.png)
 
 ## 3 嗅探要操作的UI控件
 
@@ -84,11 +84,11 @@ macOS总是隐藏着许多你找不到的选项，必须通过同时按键盘才
 
 1. 打开自动操作（Automator），新建工作流程（Workflow）。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130225022.png)
+![image](./image/Pasted%20image%2020221130225022.png)
 
 2. 找到**实用工具——运行AppleScript**，添加（拖拽）至右侧。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130225158.png)
+![image](./image/Pasted%20image%2020221130225158.png)
 
 3. **打开系统偏好设置（System Preference）至你想要嗅探的界面**，比如按住Option点击显示器（Displays），进入旋转（Rotation）存在的隐藏页面。在右侧框中输入以下代码：
 
@@ -104,7 +104,7 @@ end tell
 
 4. 点击右上角**运行**，运行完成后，点击**结果——{}**，复制下方框里的全部代码到随便一个IDE，方便代码阅读。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130230240.png)
+![image](./image/Pasted%20image%2020221130230240.png)
 
 5. 通过搜索“button”，你能找到如下的这些空间的完整语句，包括部分二级菜单的选项名称，也可以找得到。
 
@@ -241,34 +241,34 @@ end tell
 
 1. 打开自动操作（Automator），新建一个文稿，选择**快速操作**。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221130235955.png)
+![image](./image/Pasted%20image%2020221130235955.png)
 
 2. 找到**实用工具——运行AppleScript**，添加（拖拽）至右侧，并将上面的代码粘贴在此处。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201001110.png)
+![image](./image/Pasted%20image%2020221201001110.png)
 
 3. 选择**工作流程收到——没有输入**
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201001323.png)
+![image](./image/Pasted%20image%2020221201001323.png)
 
 4. 保存快速操作，名字随意，脚本文件将会保存在`/Users/cloudu/Library/Services`中，后缀为`rotate_screen.workflow`
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201001438.png)
+![image](./image/Pasted%20image%2020221201001438.png)
 
 ### 5.2 设置快捷键
 
 1. 打开**系统偏好设置——键盘——快捷键**，找到**服务——通用——rotate_screen**
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201001926.png)
+![image](./image/Pasted%20image%2020221201001926.png)
 
 2. 点击后面，按下快捷键即可完成，我设置为了Control + Command + R。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201002018.png)
+![image](./image/Pasted%20image%2020221201002018.png)
 
 3. 首次运行可能会出现权限申请，可能会出现不允许发送按键的错误，请在**系统偏好设置——隐私与安全性——辅助权限**的列表中，将**系统偏好设置.app / 自动操作.app 
  / AEServer勾选**。
 
-![](https://github.com/CLOUDUH/rotate-screen/img/Pasted%20image%2020221201003224.png)
+![image](./image/Pasted%20image%2020221201003224.png)
 
 ## 6 注意事项
 
