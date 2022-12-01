@@ -1,3 +1,5 @@
+![image1](./image/rotate-screen.png)
+
 ## Abstract
 
 本文主要介绍如何通过AppleScript语言自己实现显示器一键旋转90度或一键恢复标准角度，并通过自动操作（Automator）封装成APP，并再次使用自动操作的快速操作绑定快捷键，通过键盘就可以实现显示器旋转。核心是理解AppleScript的操作逻辑，读者理解之后，可以根据自己机器版本的不同，实现同类的自动操作。
